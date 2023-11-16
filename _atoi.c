@@ -1,10 +1,6 @@
 #include "shell.h"
 
 /**
- * _atoi - this converts string to a number
- * @s : pointer int
- * _atoi: this converts string to number
- * Return: The result of the converted number
  * interactive - returns true if shell is interactive mode
  * @info: struct address
  *
@@ -17,7 +13,7 @@ int interactive(info_t *info)
 
 /**
  * is_delim - checks if character is a delimeter
- * @c: the character to be checked
+ * @c: the char to check
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
@@ -51,53 +47,23 @@ int _isalpha(int c)
 
 int _atoi(char *s)
 {
-	int a;
-	int check_num;
-	unsigned int sum;
-	unsigned int y;
-	int neg;
-
-	neg = 0;
-	check_num = 0;
-	sum = 0;
-	a = 0;
-
-	/* run a while loop */
-	while (s[a] != '\0')
-	int a, sign = 1, flag = 0, output;
+	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
-	for (a = 0;  s[a] != '\0' && flag != 2; a++)
+	for (i = 0;  s[i] != '\0' && flag != 2; i++)
 	{
-		if ((s[a] > '9' || s[a] < '0') && check_num > 0)
-			break;
-		if (s[a] == '-')
-			neg++;
+		if (s[i] == '-')
 			sign *= -1;
 
-		if (s[a] >= '0' && s[a] <= '9')
-			check_num++;
-		a++;
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
 			result *= 10;
-			result += (s[a] - '0');
+			result += (s[i] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
 	}
-	a = a - 1;
-	y = 1;
-	while (check_num > 0)
-	{
-		sum = sum + ((s[i] - '0') * x);
-		y = y * 10;
-		a--;
-		check_num--;
-	}
-	if (neg % 2 != 0)
-		sum = sum * -1;
-	return (sum);
 
 	if (sign == -1)
 		output = -result;
